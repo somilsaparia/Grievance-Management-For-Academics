@@ -1,0 +1,207 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="FrontPanelStaff.master.cs" Inherits="Content_FrontPanel" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="<%=ResolveClientUrl("~/Content/AdminPanel/assets/images/favicon.png") %>" />
+    <title>
+        <asp:ContentPlaceHolder id="cphTitle" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </title>
+
+    <!-- Custom CSS -->
+    <link href="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/css/float-chart.css") %>" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="<%=ResolveClientUrl("~/Content/AdminPanel/dist/css/style.min.css") %>" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <asp:ContentPlaceHolder id="cphHead" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+    <div>
+
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    
+    <div id="main-wrapper">
+        
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+                    <asp:HyperLink runat="server" class="nav-toggler waves-effect waves-light d-block d-md-none" NavigateUrl="javascript:void(0)"><i class="ti-menu ti-close"></i></asp:HyperLink>
+                    
+                    <asp:HyperLink runat="server" class="navbar-brand" NavigateUrl="~/Frontpanel/Staff/Default.aspx">
+                        <!-- Logo icon -->
+                        <b class="logo-icon p-l-10">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <asp:Image ID="imgLogoIcon" runat="server" ImageUrl="~/Content/AdminPanel/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                           
+                        </b>
+                        <span class="logo-text">
+                            <asp:Label ID="lblLogoText" runat="server" Text="Grievance System"></asp:Label>
+                            <!-- <asp:Image ID="imfLogoText" runat="server" ImageUrl="~/Content/AdminPanel/assets/images/logo-text.png" alt="homepage" class="light-logo" />-->
+                        </span>
+                        <!-- <b class="logo-icon"> -->
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                            
+                        <!-- </b> -->
+                    </asp:HyperLink>
+
+                    <asp:HyperLink runat="server" class="topbartoggler d-block d-md-none waves-effect waves-light" NavigateUrl="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></asp:HyperLink>
+                </div>
+                
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><asp:HyperLink runat="server" class="nav-link sidebartoggler waves-effect waves-light" NavigateUrl="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></asp:HyperLink></li>
+                        
+                        <li class="nav-item dropdown">
+                            <asp:HyperLink runat="server" class="nav-link dropdown-toggle" NavigateUrl="~/FrontPanel/Staff/Grievance/GrievanceAddEdit.aspx" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                             <span class="d-none d-md-block"><i class="m-r-10 mdi mdi-database-plus"></i> New Grievance </span>
+                            </asp:HyperLink>
+                        </li>
+                        
+                        <li class="nav-item search-box"> <asp:HyperLink runat="server" class="nav-link waves-effect waves-dark" NavigateUrl="javascript:void(0)"><i class="ti-search"></i></asp:HyperLink>
+                            <div class="app-search position-absolute">
+                                <asp:TextBox ID="txtSearchBox" runat="server" class="form-control" placeholder="Search &amp; enter"></asp:TextBox> <a class="srh-btn"><i class="ti-close"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <ul class="navbar-nav float-right">
+                        <li class="nav-item dropdown">
+                            <b><span style="color: white;">Hi!, <asp:Label ID="lblStaffFirstName" runat="server"></asp:Label> <asp:Label ID="lblStaffLastName" runat="server"></asp:Label></span></b>
+                            <asp:HyperLink runat="server" CssClass="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <asp:Image ID="imgUser1" runat="server" ImageUrl="~/Content/AdminPanel/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" height="31" />
+                            </asp:HyperLink>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <asp:HyperLink runat="server" CssClass="dropdown-item" NavigateUrl="~/FrontPanel/Staff/StaffProfile.aspx"><i class="ti-user m-r-5 m-l-5"></i> My Profile</asp:HyperLink>
+                                <div class="dropdown-divider"></div>
+                                <asp:LinkButton ID="lbLogout" runat="server" CssClass="dropdown-item" OnClick="lbLogout_Click"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</asp:LinkButton>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+        
+        <aside class="left-sidebar" data-sidebarbg="skin5">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item">
+                            <asp:HyperLink ID="hlDefault" runat="server" class="sidebar-link waves-effect waves-dark sidebar-link" NavigateUrl="~/FrontPanel/Staff/Default.aspx" aria-expanded="false">
+                                <i class="m-r-10 mdi mdi-home"></i>
+                                <span class="hide-menu"> Home </span>
+                            </asp:HyperLink>
+                        </li>
+                        <li class="sidebar-item">
+                            <asp:HyperLink ID="hlAddGrievance" runat="server" class="sidebar-link waves-effect waves-dark sidebar-link" NavigateUrl="~/FrontPanel/Staff/Grievance/GrievanceAddEdit.aspx" aria-expanded="false">
+                                <i class="m-r-10 mdi mdi-database-plus"></i><span class="hide-menu"> Add Grievance </span>
+                            </asp:HyperLink>
+                        </li>
+                        <li class="sidebar-item"><asp:HyperLink ID="hlGrievanceList" runat="server" NavigateUrl="~/FrontPanel/Staff/Grievance/GrievanceList.aspx" class="sidebar-link"><i class="m-r-10 mdi mdi-format-list-numbers"></i><span class="hide-menu"> Grievance List </span></asp:HyperLink></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        
+        <div class="page-wrapper">
+            
+             <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title"><asp:ContentplaceHolder ID="cphPageTitle" runat="server"></asp:ContentplaceHolder></h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><asp:HyperLink ID="hlBreadcrumbHome" runat="server" NavigateUrl="~/FrontPanel/Staff/Default.aspx">Home</asp:HyperLink></li>
+                                    <li class="breadcrumb-item" aria-current="page"><asp:ContentPlaceHolder ID="cphBreadcrumb" runat="server"></asp:ContentPlaceHolder></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+
+                <asp:ContentPlaceHolder ID="cphContent" runat="server">
+
+                </asp:ContentPlaceHolder>
+
+            </div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    </div>
+    </form>
+
+    <asp:ContentPlaceHolder id="cphScript" runat="server">
+
+    </asp:ContentPlaceHolder>
+
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/jquery/dist/jquery.min.js") %>"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/popper.js/dist/umd/popper.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/bootstrap/dist/js/bootstrap.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/extra-libs/sparkline/sparkline.js") %>"></script>
+    <!--Wave Effects -->
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/dist/js/waves.js") %>"></script>
+    <!--Menu sidebar -->
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/dist/js/sidebarmenu.js") %>"></script>
+    <!--Custom JavaScript -->
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/dist/js/custom.min.js") %>"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="<%=ResolveClientUrl("~/Content/AdminPanel/dist/js/pages/dashboards/dashboard1.js") %>"></script> -->
+    <!-- Charts js Files -->
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/excanvas.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/jquery.flot.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/jquery.flot.pie.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/jquery.flot.time.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/jquery.flot.stack.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot/jquery.flot.crosshair.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js") %>"></script>
+    <script src="<%=ResolveClientUrl("~/Content/AdminPanel/dist/js/pages/chart/chart-page-init.js") %>"></script>
+
+</body>
+</html>
