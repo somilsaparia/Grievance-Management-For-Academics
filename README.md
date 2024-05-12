@@ -41,9 +41,6 @@ Log in as an admin to manage the system or as a staff/student to file and track 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Screenshots
 ![Dashboard](/Screenshots/Dashboard.png "Dashboard View")
 !["Grievance Details"](/Screenshots/GrievanceDetails.png "Grievance Details View")
