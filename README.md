@@ -27,7 +27,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 1. Clone the repository to your local machine:
     ```bash
-    git clone https://github.com/yourusername/academic-grievance-handling-system.git
+    git clone https://github.com/somilsaparia/Grievance-Management-For-Academics.git
     ```
 2. Open the solution file in Visual Studio.
 3. Restore the necessary packages and rebuild the solution.
