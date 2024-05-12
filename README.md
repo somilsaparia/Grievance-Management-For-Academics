@@ -46,14 +46,14 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Screenshots
 ![Dashboard](/Screenshots/Dashboard.png "Dashboard View")
-![Grievance Details](/Screenshots/Grievance Details.png "Grievance Details View")
-![Grievance List](/Screenshots/Grievance List.png "Grievance List View")
-![Login](/Screenshots/Dogin.png "Login View")
-![New Grievance](/Screenshots/New Grievance.png "New Grievance View")
-![Staff Dashboard](/Screenshots/Staff Dashboard.png "Staff Dashboard View")
+!["Grievance Details"](/Screenshots/GrievanceDetails.png "Grievance Details View")
+![Grievance List](/Screenshots/GrievanceList.png "Grievance List View")
+![Login](/Screenshots/Login.png "Login View")
+![New Grievance](/Screenshots/NewGrievance.png "New Grievance View")
+![Staff Dashboard](/Screenshots/StaffDashboard.png "Staff Dashboard View")
 ![Staff](/Screenshots/Staff.png "Staff List View")
 ![Student](/Screenshots/Student.png "Student Add View")
-![User Grievance Details](/Screenshots/User Grievance Details.png "User Grievance Details View")
-![User Grievance List](/Screenshots/User Grievance List.png "User Grievance List View")
+![User Grievance Details](/Screenshots/UserGrievanceDetails.png "User Grievance Details View")
+![User Grievance List](/Screenshots/UserGrievanceList.png "User Grievance List View")
 
 
